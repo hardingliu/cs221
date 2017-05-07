@@ -1,0 +1,10 @@
+(i) Under 70%, over 70%
+(ii) The larger the prime returns, the hash function perfroms better, so we 
+use a for loop to find the largest prime that is smaller than the tablesize.
+(iii) When the table size is a prime, with a hash2(k) not equal to 0 (as lar
+ge as possible), double hasing will always find an empty slot without primar
+y clustering nor secondary clustering.
+(iv) I would choose double hashing, since it will not cause primary clusteri
+ng nor secondary clustering. Also, with well chosen hash2(k) and tablesize, 
+it will always find an empty slot. If the load factor is smaller than 1/2, w
+e could choose linear probing or quadratic probing.
