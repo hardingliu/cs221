@@ -12,3 +12,4 @@ index.o: index.cc ordered_array.h
 clean: 
 	rm *.o
 	rm index
+	rm -rf index.dSYM
