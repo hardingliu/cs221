@@ -70,13 +70,18 @@ std::vector<int> to_vector(Node *head)
 void delete_last_element(Node *&head)
 {
 	// ******** WRITE YOUR CODE HERE ********
-	if (head) {
+	if (head)
+	{
 		Node *temp = head;
-		if (!head->next) {
+		if (!head->next)
+		{
 			delete temp;
 			head = NULL;
-		} else {
-			while (temp->next->next != NULL) {
+		}
+		else
+		{
+			while (temp->next->next != NULL)
+			{
 				temp = temp->next;
 			}
 			delete temp->next;
@@ -97,16 +102,22 @@ void delete_last_element(Node *&head)
 void remove(Node *&head, int oldKey)
 {
 	// ******** WRITE YOUR CODE HERE ********
-	if (head) {
+	if (head)
+	{
 		Node *temp = head;
-		if (head->key == oldKey) {
+		if (head->key == oldKey)
+		{
 			head = head->next;
 			delete temp;
-		} else {
+		}
+		else
+		{
 			Node *prev = temp;
 			temp = temp->next;
-			while (temp) {
-				if (temp->key == oldKey) {
+			while (temp)
+			{
+				if (temp->key == oldKey)
+				{
 					prev->next = temp->next;
 					delete temp;
 				}
@@ -129,16 +140,19 @@ void remove(Node *&head, int oldKey)
 void insert_after(Node *head, int oldKey, int newKey)
 {
 	// ******** WRITE YOUR CODE HERE ********
-	if (head) {
+	if (head)
+	{
 		Node *temp = head;
-		while (temp) {
-			if (temp->key == oldKey) {
+		while (temp)
+		{
+			if (temp->key == oldKey)
+			{
 				Node *new_node = new Node(newKey, temp->next);
 				temp->next = new_node;
 				break;
-			} 
+			}
 			temp = temp->next;
-		} 
+		}
 	}
 }
 
@@ -154,55 +168,54 @@ void insert_after(Node *head, int oldKey, int newKey)
  */
 Node *interleave(Node *list1, Node *list2)
 {
-	// ******** WRITE YOUR CODE HERE ********
-	std::vector<int> l1 = to_vector(list1);
-	std::vector<int> l2 = to_vector(list2);
 	Node *list3 = NULL;
 	Node *temp = NULL;
-	int l1_index;
-	int l2_index;
-
-	if (l1.size() == 0 && l2.size() == 0) {
+	Node *ptr_1 = list1;
+	Node *ptr_2 = list2;
+	if (!ptr_1 && !ptr_2) {
 		return list3;
-	} else if (l1.size() == 0) {
-		temp = new Node(l2[0], NULL);
-		l2_index = 1;
-		l1_index = 0;
+	}
+    if (!ptr_1) {
+		temp = new Node(ptr_2->key, NULL);
+		ptr_2 = ptr_2->next;
+		list3 = temp;
 	} else {
-		temp = new Node(l1[0], NULL);
-		l2_index = 0;
-		l1_index = 1;
+		temp = new Node(ptr_1->key, NULL);
+		ptr_1 = ptr_1->next;
+		list3 = temp;
 	}
 
-	list3 = temp;
 	int next = 2;
 
-	while (l1_index < l1.size() && l2_index < l2.size()) {
-		if (next == 2) {
-			temp->next = new Node(l2[l2_index], NULL);
-			temp = temp->next;
-			l2_index++;
-			next--;
-		} 
-		if (next == 1) {
-			temp->next = new Node(l1[l1_index], NULL);
-			temp = temp->next;
-			l1_index++;
+	while (ptr_1 && ptr_2)
+	{
+		assert(next == 1 || next == 2);
+		if (next == 1)
+		{
+			temp->next = new Node(ptr_1->key, NULL);
+			ptr_1 = ptr_1->next;
 			next++;
+			temp = temp->next;
+		}
+		else
+		{
+			temp->next = new Node(ptr_2->key, NULL);
+			ptr_2 = ptr_2->next;
+			next--;
+			temp = temp->next;
 		}
 	}
-	if (l1_index >= l1.size()) {
-		while (l2_index < l2.size()) {
-			temp->next = new Node(l2[l2_index], NULL);
-			temp = temp->next;
-			l2_index++;
-		}
-	} else {
-		while (l1_index < l1.size()) {
-			temp->next = new Node(l1[l1_index], NULL);
-			temp = temp->next;
-			l1_index++;
-		}
+	while (ptr_1)
+	{
+		temp->next = new Node(ptr_1->key, NULL);
+		ptr_1 = ptr_1->next;
+		temp = temp->next;
+	}
+	while (ptr_2)
+	{
+		temp->next = new Node(ptr_2->key, NULL);
+		ptr_2 = ptr_2->next;
+		temp = temp->next;
 	}
 	return list3;
 }

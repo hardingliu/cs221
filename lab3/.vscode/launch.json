@@ -5,10 +5,10 @@
             "name": "(lldb) Launch",
             "type": "cppdbg",
             "request": "launch",
-            "program": "/Users/zl/Desktop/lab3/lists",
+            "program": "/Users/zl/code/GitHub/cs221/lab3/lists",
             "args": [],
             "stopAtEntry": false,
-            "cwd": "/Users/zl/Desktop/lab3/",
+            "cwd": "/Users/zl/code/GitHub/cs221/lab3/",
             "environment": [],
             "externalConsole": true,
             "MIMode": "lldb"
