@@ -1,19 +1,20 @@
 #include <iostream>
-#include <vector> 
- 
-using namespace std;
+#include <vector>
 
-struct Node {
-  int key;
-  Node* next;
-}; 
+struct Node
+{
+    int key;
+    Node *next;
+
+	Node(int new_key, Node *next_ptr): key(new_key), next(next_ptr) {}
+};
 
 // function declarations
-void insert(Node*& head, int newKey);
-void print(Node* head);
-int size(Node* head);
-vector<int> to_vector(Node* head);
-void delete_last_element(Node*& head);
-void remove(Node*& head, int oldKey);
-void insert_after(Node* head, int oldKey, int newKey);
-Node* interleave(Node* list1, Node* list2);
+void insert(Node *&head, int newKey);
+void print(Node *head);
+int size(Node *head);
+std::vector<int> to_vector(Node *head);
+void delete_last_element(Node *&head);
+void remove(Node *&head, int oldKey);
+void insert_after(Node *head, int oldKey, int newKey);
+Node *interleave(Node *list1, Node *list2);

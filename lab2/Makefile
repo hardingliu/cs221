@@ -6,3 +6,9 @@ pointers : pointers.cc
 
 deque :	deque.cc
 	g++ -Wall -g deque.cc -o deque
+
+extra : extra.cc
+	g++ -Wall -g extra.cc -o extra
+
+clean : 
+	rm -rf *.dSYM

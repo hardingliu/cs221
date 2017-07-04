@@ -17,21 +17,16 @@ CDate::CDate(int year, int month, int day){
 
 CDate::CDate(int year, std::string month, int day){
 	// TODO you need to fill in the code here        ********
-	// HINT use monthStr2Num to get the month_num
-        int month_num;
-        month_num  = monthStr2Num(month);
-        setDate( year, month_num , day ); 
+	// HINT use monthStr2Num to get the month_num 
+	int month_num = monthStr2Num(month);
+	setDate(year, month_num, day);
 }
 
 bool CDate::isValidDate(int year, int month, int day){
 	// TODO you need to fill in the code here        ********
 	// comment out the "return false" below 
 	// then check the validity of a year, month, and day
-        bool valid = false;  	
-        if (year >= 0) {
-           valid = isValidDay(year, month, day); 
-        }
-        return valid;
+	return (year >= 0) && (month >= 1 && month <= 12) && isValidDay(year, month, day);
 }
 
 bool CDate::isValidDate(int year, std::string month, int day){
@@ -39,52 +34,40 @@ bool CDate::isValidDate(int year, std::string month, int day){
 	// comment out "return false" below
 	// HINT use monthStr2Num to get the month_num 
 	// and then reuse another function
-        int month_num;
-        month_num = monthStr2Num(month);
-        return (isValidDate(year, month_num, day));
+	int month_num = monthStr2Num(month);
+	return isValidDate(year, month_num, day);
 }
 
-int CDate::monthStr2Num(std::string month)  {
-        int month_num = 0;
-
+int CDate::monthStr2Num(std::string month){
+	// TODO you need to fill in the code here        ********
 	if (month.compare("January") == 0) {
-           month_num = 1;
-           } 
-        else if (month.compare("February") == 0) {
-           month_num = 2;
-           }
-        else if (month.compare("March") == 0) {
-           month_num = 3;
-           }
-        else if (month.compare("April") == 0) {
-           month_num = 4;
-           }
-        else if (month.compare("May") == 0) {
-           month_num = 5;
-           }
-        else if (month.compare("June") == 0) {
-           month_num = 6;
-           }
-        else if (month.compare("July") == 0) {
-           month_num = 7;
-           }
-        else if (month.compare("August") == 0) {
-           month_num = 8;
-           }
-        else if (month.compare("September") == 0) {
-           month_num = 9;
-           }
-        else if (month.compare("October") == 0) {
-           month_num = 10;
-           }
-        else if (month.compare("November") == 0) {
-           month_num = 11;
-           }
-        else if (month.compare("December") == 0) {
-           month_num = 12;
-           }
-     	return month_num;
-}
+		return 1;
+	} else if (month.compare("February") == 0) {
+		return 2;
+	} else if (month.compare("March") == 0) {
+		return 3;
+	} else if (month.compare("April") == 0) {
+		return 4;
+	} else if (month.compare("May") == 0) {
+		return 5;
+	} else if (month.compare("June") == 0) {
+		return 6;
+	} else if (month.compare("July") == 0) {
+		return 7;
+	} else if (month.compare("August") == 0) {
+		return 8;
+	} else if (month.compare("September") == 0) {
+		return 9;
+	} else if (month.compare("October") == 0) {
+		return 10;
+	} else if (month.compare("November") == 0) {
+		return 11;
+	} else if (month.compare("December") == 0) {
+		return 12;
+	} else {
+		return -1;
+	}
+ }
 
 bool CDate::isValidDay(int year, int month, int day){
 	if ((day < 1) || (day > 31)) return false;
@@ -98,14 +81,15 @@ bool CDate::isValidDay(int year, int month, int day){
 		case 8:
 		case 10:
 		case 12:
-	                valid = true; 
-                        break;
+			// TODO you need to fill in the code here        ********
+			valid = (day <= 31);
+			break;
 		case 2:
 			// Don't worry about this code too much.
 			// It handles all the leap year rules for February.
 			if ((year % 4) != 0) {
 				valid = (day <=28);
-             		} else if ((year % 400) == 0) {
+			} else if ((year % 400) == 0) {
 				valid = (day <= 29);
 			} else if ((year % 100) == 0) {
 				valid = (day <= 28);
@@ -117,17 +101,15 @@ bool CDate::isValidDay(int year, int month, int day){
 		case 6:
 		case 9:
 		case 11:
-		        valid = (day <= 30);
-                        break;
-        
+			// TODO you need to fill in the code here        ********
+			valid = (day <= 30);
+			break;
 		default:
 			// TODO you need to fill in the code here        ********
-                        valid = false;
-			break;
+			break; 
 	}
-      return valid;
-}	
-
+	return valid;
+}
 
 void CDate::setDate(int year, int month, int day){
 	if(isValidDate(year, month, day)){    
@@ -145,14 +127,8 @@ void CDate::setDate(int year, std::string month, int day){
 	// TODO you need to fill in the code here        ********
 	// HINT use monthStr2Num to get the month_num 
 	// and then reuse another function
-        if(isValidDate(year, month, day)) {
-                int month_num = monthStr2Num(month);
-                setDate(year, month_num, day);
-        }
-        else {
-               m_year = m_month = m_day = 0;
-        }
-
+	int month_num = monthStr2Num(month);
+	setDate(year, month_num, day);
 }
 
 void CDate::print(void){

@@ -8,7 +8,6 @@
 
 #include <string>
 
-
 class CDate
 {
 public:
