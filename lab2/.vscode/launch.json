@@ -1,0 +1,17 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "(lldb) Launch",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "/Users/zl/code/GitHub/cs221/lab2/deque",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "/Users/zl/code/GitHub/cs221/lab2/",
+            "environment": [],
+            "externalConsole": true,
+            "MIMode": "lldb"
+        }
+    ]
+}
