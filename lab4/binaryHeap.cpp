@@ -72,20 +72,6 @@ void printHeapA(int *heap, int size, int node = 0, int d = 0)
 //POST: The first size elements of heap are printed as a tree
 void printHeap(int *heap, int size, int node = 0, int d = 0)
 {
-	// TODO: put your code here for Questions 1 and 2
-	// if (node >= size) {
-	//     return;
-	// }
-
-	// else {
-	//     for (int i = d; i > 0; i= i - 1) {
-	//         cout << "*";
-	//     }
-	// cout << heap[node]<< endl;
-	// printHeap(heap, size, node* 2+1, d+1);
-	// printHeap(heap, size, node* 2+2, d+1);
-	// }
-
 	if (node < size)
 	{
 		printHeap(heap, size, node * 2 + 2, d + 1);
@@ -115,10 +101,6 @@ void remove(int *heap, int key, int &size)
 			i = i - 1;
 		}
 	}
-	// if (heap[0] == key)
-	// {
-	// 	size = 0;
-	// }
 	heapify(heap, size);
 }
 
