@@ -52,6 +52,20 @@ void sort(int *heap, int size)
 	}
 }
 
+void printHeapA(int *heap, int size, int node = 0, int d = 0)
+{
+	if (node < size)
+	{
+		for (int i = d; i > 0; i--)
+		{
+			cout << "*";
+		}
+		cout << heap[node] << endl;
+		printHeapA(heap, size, node * 2 + 1, d + 1);
+		printHeapA(heap, size, node * 2 + 2, d + 1);
+	}
+}
+
 //PRE:  The capacity of the array pointed to by heap is at least size.
 //      node is the index of the root of the current sub-tree and
 //      it is at depth d in the whole heap
@@ -72,16 +86,12 @@ void printHeap(int *heap, int size, int node = 0, int d = 0)
 	// printHeap(heap, size, node* 2+2, d+1);
 	// }
 
-	if (node >= size)
-	{
-		return;
-	}
-	else
+	if (node < size)
 	{
 		printHeap(heap, size, node * 2 + 2, d + 1);
 		for (int i = d; i > 0; i = i - 1)
 		{
-			cout << "\t";
+			cout << "  ";
 		}
 		cout << heap[node] << endl;
 		printHeap(heap, size, node * 2 + 1, d + 1);
@@ -96,27 +106,20 @@ void printHeap(int *heap, int size, int node = 0, int d = 0)
 void remove(int *heap, int key, int &size)
 {
 	// TODO: put your code for Question 3 here
-	if (size == 0)
+	for (int i = 0; i < size; i = i + 1)
 	{
-		return;
-	}
-	else
-	{
-		for (int i = 0; i < size; i = i + 1)
+		if (heap[i] == key)
 		{
-			if (heap[i] == key)
-			{
-				heap[i] = heap[size - 1];
-				size = size - 1;
-				i = i - 1;
-			}
+			heap[i] = heap[size - 1];
+			size = size - 1;
+			i = i - 1;
 		}
-		if (heap[0] == key)
-		{
-			size = 0;
-		}
-		heapify(heap, size);
 	}
+	// if (heap[0] == key)
+	// {
+	// 	size = 0;
+	// }
+	heapify(heap, size);
 }
 
 //PRE:  heap1 and heap2 contain size1 and size2 elements respectively.
