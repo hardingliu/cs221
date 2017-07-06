@@ -18,7 +18,6 @@ struct Node{
     Node* next[MAX_HEIGHT];
 };
 
-
 int randBit(void);
 Node* find(string word, Node* head);
 void insert(string word, int pagei, Node* head);
