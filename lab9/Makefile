@@ -1,6 +1,5 @@
 avl : avl.cc
-	g++ -Wall -g -std=gnu++0x -fopenmp avl.cc -o avl
+	g++ -Wall -g -std=gnu++0x -Xpreprocessor -fopenmp -lomp avl.cc -o avl
 
 clean:
-	rm -f avl
-
+	rm -rf avl avl.dSYM
