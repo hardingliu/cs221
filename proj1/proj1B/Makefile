@@ -12,3 +12,4 @@ index.o : index.cc skiplist.h
 clean :
 	rm *.o
 	rm index
+	rm index.txt
