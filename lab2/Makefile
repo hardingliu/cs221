@@ -10,6 +10,6 @@ deque :	deque.cc
 extra : extra.cc
 	g++ -Wall -g extra.cc -o extra
 
-clean : 
+clean :
 	rm -f insertion pointers deque extra
 	rm -rf *.dSYM
