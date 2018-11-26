@@ -1,12 +1,11 @@
 #include <iostream>
 #include <vector>
 
-struct Node
-{
-    int key;
-    Node *next;
+struct Node {
+  int key;
+  Node *next;
 
-	Node(int new_key, Node *next_ptr): key(new_key), next(next_ptr) {}
+  Node(int new_key, Node *next_ptr) : key(new_key), next(next_ptr) {}
 };
 
 // function declarations
