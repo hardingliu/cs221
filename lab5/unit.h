@@ -6,19 +6,20 @@
 
 class Unit {
 public:
-	Unit();
-	virtual ~Unit();
+  Unit();
+  virtual ~Unit();
 
-	void assertEquals(std::string msg, int expected, int actual);
-	void assertvectorEquals(std::string msg, std::vector<int>& expected, std::vector<int>& actual);
-	void assertNonNull(std::string msg, void* actual);
-	void assertNull(std::string msg, void* actual);
-	void printResults();
+  void assertEquals(std::string msg, int expected, int actual);
+  void assertvectorEquals(std::string msg, std::vector<int> &expected,
+                          std::vector<int> &actual);
+  void assertNonNull(std::string msg, void *actual);
+  void assertNull(std::string msg, void *actual);
+  void printResults();
 
 private:
-	std::vector<std::string> failures;
+  std::vector<std::string> failures;
 
-	std::string toStr(std::vector<int>& v);
+  std::string toStr(std::vector<int> &v);
 };
 
 #endif /* UNIT_H_ */
