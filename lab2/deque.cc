@@ -30,9 +30,7 @@ public:
   void pushR(const Object &);
   Object popL();
   Object popR();
-  bool
-  is_empty() const; // this function does not modify Deque object, so it's const
-
+  bool is_empty() const; // this function does not modify Deque object, so it's const
   void removeDuplicates();
   // replace subsequences of identical consecutive elements with one copy
   // Example: if Deque contains "ab", "ba", "cd", "cd", "cd", "ba", "ba", "ab",
