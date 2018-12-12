@@ -1,14 +1,13 @@
 Q2: the average number of comparisons when NN=1000 is 11022
-    the average number of comparisons when NN=100 is 647   
+    the average number of comparisons when NN=100 is 647
     the average number of comparisons when NN=10 is 24
 
 Q4: C(n) = 0 if n <= 1;
     C(n) = (sigma(from i = 1 to n) of (n-1 + C(i-1) + C(n-i)))/n
-Q5: (a):The running time for quicksort in the average case is: n*lg(n)
-    (b):The running time for quicksort in the worst caseis: n^2
-    (c):Since the worst case only arises when the input array is already sor
--ted 
-    (d): Our implementation is not a stable sort. Since the relative positio
--n of two equal values will not be preserved.
-    (e)Our implementation is an in-place sort. Since we do not need extra sp
--ace to copy the new array into.	  
+Q5: (a): The running time for quicksort in the average case is: n*lg(n)
+    (b): The running time for quicksort in the worst caseis: n^2
+    (c): Since the worst case only arises when the input array is already sorted
+    (d): Our implementation is not a stable sort. Since the relative position
+         of two equal values will not be preserved.
+    (e): Our implementation is an in-place sort. Since we do not need extra space
+         to copy the new array into.
