@@ -1,17 +1,16 @@
-#include <vector>
-#include <string>
-#include <iostream>
 #include <cctype>
-#include <sstream>
 #include <fstream>
+#include <iostream>
+#include <sstream>
+#include <string>
+#include <vector>
 
 using namespace std;
 
-struct Entry
-{
-    string words;
-    int counts;
-    vector<int> pages;
+struct Entry {
+  string words;
+  int counts;
+  vector<int> pages;
 };
 
 int find(string theword, vector<Entry> &list1);
